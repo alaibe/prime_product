@@ -1,0 +1,5 @@
+#!/usr/bin/env ruby
+
+require_relative '../lib/prime_product'
+
+options = PrimeProduct::OptParser.parse(ARGV)

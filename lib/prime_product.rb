@@ -1,0 +1,1 @@
+require_relative 'prime_product/opt_parser'
