@@ -1,10 +1,13 @@
 require_relative '../spec_helper'
 
-descrive 'prime product' do
+module PrimeProduct
+  describe 'prime product' do
   
-  it 'return a multiplication table of the first 10 prime numbers.' do
-    subject      { PrimeProduct.generate 10 }
-    let(:result) { "
+    it 'return a multiplication table of the first 10 prime numbers' do
+      primes  = Prime.new.first 10
+      product = Product.new(primes).calculate
+      report  = Report.new(product).generate
+      result  = <<-eos
   |  2  3   5   7  11  13  17  19  23  29
 ------------------------------------------
 2 |  4  6  10  14  22  26  34  38  46  58
@@ -17,8 +20,8 @@ descrive 'prime product' do
 19 | 38 57  95 133 209 247 323 361 437 551
 23 | 46 69 115 161 253 299 391 437 529 667
 29 | 58 87 145 203 319 377 493 551 667 841
-" }
-    it { should eq result }
+eos
+      expect(report).to eql result
+    end
   end
-  
 end
