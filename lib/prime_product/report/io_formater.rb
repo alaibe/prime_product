@@ -17,6 +17,11 @@ module PrimeProduct
         @output << "\n"
       end
       
+      def generate_and_display
+        generate!
+        puts @output
+      end
+      
       private
       
       def left_column_width
