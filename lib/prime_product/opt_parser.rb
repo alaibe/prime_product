@@ -5,7 +5,8 @@ module PrimeProduct
   class OptParser
 
     def self.parse(args)
-      options = OpenStruct.new
+      options        = OpenStruct.new
+      options.number = 10
 
       opt_parser = OptionParser.new do |opts|
         opts.banner = "Usage: prime_product n [options]"
