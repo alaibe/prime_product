@@ -5,8 +5,9 @@ module PrimeProduct
   class OptParser
 
     def self.parse(args)
-      options        = OpenStruct.new
-      options.number = 10
+      options             = OpenStruct.new
+      options.number      = 10
+      options.upper_bound = 100
 
       opt_parser = OptionParser.new do |opts|
         opts.banner = "Usage: prime_product n [options]"
@@ -17,6 +18,11 @@ module PrimeProduct
         opts.on("-N", "--number [NUMBER]", Integer, "Display the product table for N numbers, default is 10") do |number|
           options.number = number
         end
+        
+        opts.on("-U", "--upper_bound [NUMBER]", Integer, "Upper bound for prime number calculation, default is 100") do |number|
+          options.upper_bound = number
+        end
+        
         opts.separator ""
         opts.separator "Common options:"
   

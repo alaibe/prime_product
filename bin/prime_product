@@ -3,6 +3,6 @@
 require_relative '../lib/prime_product'
 
 options = PrimeProduct::OptParser.parse(ARGV)
-primes  = PrimeProduct::Prime.new.first options.number
+primes  = PrimeProduct::Prime.new(options.upper_bound).first options.number
 product = PrimeProduct::Product.new(primes).calculate
 PrimeProduct::Report::IoFormater.new(primes, product).generate_and_display
