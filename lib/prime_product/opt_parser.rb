@@ -8,6 +8,7 @@ module PrimeProduct
       options             = OpenStruct.new
       options.number      = 10
       options.upper_bound = 100
+      options.report      = Report::Io
 
       opt_parser = OptionParser.new do |opts|
         opts.banner = "Usage: prime_product n [options]"
@@ -21,6 +22,10 @@ module PrimeProduct
         
         opts.on("-U", "--upper_bound [NUMBER]", Integer, "Upper bound for prime number calculation, default is 100") do |number|
           options.upper_bound = number
+        end
+        
+        opts.on("-R", "--report_class [STRING]", String, "Class you want to use as reporter, default is Report::Io") do |string|
+          options.report = eval string
         end
         
         opts.separator ""

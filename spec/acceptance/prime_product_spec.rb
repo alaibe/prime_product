@@ -4,10 +4,11 @@ module PrimeProduct
   describe 'prime product' do
   
     it 'return a multiplication table of the first 10 prime numbers' do
-      primes  = Prime.new.first 10
-      product = Product.new(primes).calculate
-      report  = Report::IoFormater.new(primes, product)
-      report.generate!
+      primes    = Prime.new.first 10
+      product   = Product.new(primes).calculate
+      formatter = Formatter.new(primes, product)
+      
+      formatter.generate!
       result  = <<-eos
    |   2   3   5   7  11  13  17  19  23  29
 --------------------------------------------
@@ -22,7 +23,7 @@ module PrimeProduct
 23 |  46  69 115 161 253 299 391 437 529 667
 29 |  58  87 145 203 319 377 493 551 667 841
 eos
-      expect(report.output).to eql result
+      expect(formatter.output).to eql result
     end
   end
 end
