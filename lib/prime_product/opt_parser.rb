@@ -11,7 +11,7 @@ module PrimeProduct
       options.report      = Report::Io
 
       opt_parser = OptionParser.new do |opts|
-        opts.banner = "Usage: prime_product n [options]"
+        opts.banner = "Usage: bin/prime_product [options]"
   
         opts.separator ""
         opts.separator "Specific options:"
